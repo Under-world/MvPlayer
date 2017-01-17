@@ -1,4 +1,4 @@
-package application.itheima.com.mvplayer.ui;
+package application.itheima.com.mvplayer.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private int mLayoutResId;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

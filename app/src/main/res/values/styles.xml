@@ -10,6 +10,14 @@
     <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="AnimationActivity" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/AnimationActivityStyle</item>
+    </style>
+
+    <style name="AnimationActivityStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_exit</item>
+    </style>
 
 
 </resources>

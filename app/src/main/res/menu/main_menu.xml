@@ -5,6 +5,6 @@
         android:id="@id/settings"
         android:icon="@mipmap/ic_settings_white_18dp"
         android:title="@string/settings"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
 
 </menu>

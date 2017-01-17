@@ -1,0 +1,71 @@
+package application.itheima.com.mvplayer.ui.activity;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.support.v7.app.ActionBar;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+import application.itheima.com.mvplayer.R;
+
+/**
+ * Created by Administrator on 2017/1/17 0017.
+ */
+public class SettingsActivity extends BaseActivity{
+    private static final String TAG = "SettingsActivity";
+
+    @Override
+    public int getLayoutResId() {
+
+        return R.layout.activity_settings;
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        //设置ActionBar的返回按钮和标题
+        ActionBar supportActionBar = getSupportActionBar();
+      //  getActionBar();返回空
+        supportActionBar.setDisplayHomeAsUpEnabled(true);
+        supportActionBar.setTitle(R.string.settings);
+        SharedPreferences defaultSharedPrefences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean push_notification = defaultSharedPrefences.getBoolean("push_notification", false);
+        Log.d(TAG,"init: " + push_notification);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //处理返回按钮的点击事件
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public static class SettingsFragment extends PreferenceFragment{
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+           addPreferencesFromResource(R.xml.settings);
+            return super.onCreateView(inflater, container, savedInstanceState);
+        }
+
+        @Override
+        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+            if (preference.getKey().equals("about")){
+                Intent intent = new Intent(getActivity(),AboutActivity.class);
+                startActivity(intent);
+            }
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+    }
+}

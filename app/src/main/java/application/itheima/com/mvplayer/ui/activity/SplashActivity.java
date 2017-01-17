@@ -1,4 +1,4 @@
-package application.itheima.com.mvplayer.ui;
+package application.itheima.com.mvplayer.ui.activity;
 
 import android.content.Intent;
 import android.view.animation.Animation;
